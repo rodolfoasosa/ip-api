@@ -4,7 +4,7 @@ IP-API es una API Rest que brinda información acerca del país de una direcció
 
 ## Endpoints
 
-### Endpoint para obtener información acerca del país de una dirección de IP.
+### Endpoint para obtener información acerca del país de una dirección IP.
 
 ```bash
 GET /ip/{ip}
@@ -24,7 +24,7 @@ Response ejemplo:
 }
 ```
 
-### Endpoint para bloquear una dirección de IP.
+### Endpoint para bloquear una dirección IP.
 
 ```bash
 POST /ban/{ip}
