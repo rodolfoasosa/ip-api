@@ -1,0 +1,42 @@
+
+Construir y ejecutar el servicio API Rest "ip-api" en docker
+------------------------------------------------------------
+
+Configuración de Dockerfile
+---------------------------
+#
+# Build stage
+#
+FROM maven:3.6.0-jdk-11-slim AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+
+#
+# Package stage
+#
+FROM openjdk:11-jre-slim
+COPY --from=build /home/app/target/*.jar /usr/local/lib/ip-api.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/usr/local/lib/ip-api.jar"]
+
+Notas: 
+	- Dockerfile incluida en la raíz del repositorio
+	- Dockerfile debe estar en el directorio raiz del proyecto (como pom.xml)
+
+Comandos Docker:
+----------------
+
+Comando de creación de la imagen del servicio ip-api y java en Docker:
+
+docker build -t ip-api:1.0.0 .
+
+Comando de ejecución del servicio ip-api en un Contenedor de Docker: 
+
+docker run --name ip-api -d -p 8080:8080 ip-api:1.0.0
+
+Nota: Configurar en otro puerto de ser necesario
+
+Prueba rápida:
+- Abrir un navegador de internet
+- Acceder a la dirección http://localhost:8080/ip/216.58.202.111
