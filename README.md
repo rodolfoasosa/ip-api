@@ -41,7 +41,18 @@ Response ejemplo:
 
 ## Instalación
 
+### Prerequisitos
+
+- Docker
+- Base de datos MySql
+- Credenciales de acceso para las siguientes APIs: http://api.ipapi.com y http://data.fixer.io/api/latest
+
+
+### Pasos
+
 - Clonar este repositorio.
+- Actualizar application.properties con URL de base de datos MySql, 
+  credenciales de MySql y credenciales APIs
 - Crear una imagen Docker utilizando el Dockerfile provisto.
 
 ```bash
