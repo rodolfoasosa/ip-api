@@ -45,14 +45,13 @@ Response ejemplo:
 
 - Docker
 - Base de datos MySql
-- Credenciales de acceso para las siguientes APIs: http://api.ipapi.com y http://data.fixer.io/api/latest
+- Credenciales de acceso para las siguientes APIs: https://ip2country.info y http://fixer.io
 
 
 ### Pasos
 
-- Clonar este repositorio.
-- Actualizar application.properties con URL de base de datos MySql, 
-  credenciales de MySql y credenciales APIs
+- Clonar/descargar este repositorio.
+- Actualizar archivo de propiedades del proyecto Java application.properties con URL de base de datos MySql, credenciales de MySql y credenciales APIs
 - Crear una imagen Docker utilizando el Dockerfile provisto.
 
 ```bash
