@@ -1,6 +1,6 @@
 # IP-API
 
-IP-API es una API Rest que brinda información acerca del país de una dirección de IP
+IP-API es una API Rest que brinda información acerca del país de una dirección IP
 
 ## Endpoints
 
@@ -48,7 +48,7 @@ Response ejemplo:
 docker run --name ip-api -d -p 8080:8080 ip-api:1.0.0
 ```
 
-- Ejecutar la API ip-api desde la imagen Docker.
+- Correr la API ip-api desde la imagen Docker.
 
 ```bash
 docker run --name ip-api -d -p 8080:8080 ip-api:1.0.0
@@ -58,5 +58,6 @@ docker run --name ip-api -d -p 8080:8080 ip-api:1.0.0
 
 - Ejecutar_en_Contenedor_Docker.txt
 - Pruebas_Funcionales.pdf
+- Pruebas_Unitarias.pdf
 
 La documentación se encuentra en la carpeta /docs
