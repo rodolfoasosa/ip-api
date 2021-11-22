@@ -42,11 +42,11 @@ class IpApiServiceTests {
 		
 		CountryInfo countryInfo = cacheService.isCountryCached("AR");
 		
-		assertEquals("countryName doesnt match","Argentina", countryInfo.countryName);
-		assertEquals("countryIsoCode doesnt match","AR", countryInfo.countryIsoCode);
-		assertEquals("baseCurrency doesnt match", "USD", countryInfo.exchange.baseCurrency);
-		assertEquals("currency doesnt match", "ARS", countryInfo.exchange.currency);
-		assertEquals("rate doesnt match", 200, countryInfo.exchange.rate, 0);
+		assertEquals("countryName doesnt match","Argentina", countryInfo.getCountryName());
+		assertEquals("countryIsoCode doesnt match","AR", countryInfo.getCountryIsoCode());
+		assertEquals("baseCurrency doesnt match", "USD", countryInfo.getExchange().getBaseCurrency());
+		assertEquals("currency doesnt match", "ARS", countryInfo.getExchange().getCurrency());
+		assertEquals("rate doesnt match", 200, countryInfo.getExchange().getRate(), 0);
 		assertEquals(null, cacheService.isCountryCached("BR"));
 	}
 	
@@ -56,7 +56,7 @@ class IpApiServiceTests {
 				                                        .country_code("AR")
 				                                        .country_name("Argentina")
 				                                        .build()); 
-		assertEquals("IP was not cached", "Argentina", cacheService.isIpCached("100.200.12.123").country_name);
+		assertEquals("IP was not cached", "Argentina", cacheService.isIpCached("100.200.12.123").getCountry_name());
 		assertEquals("IP was not null", null, cacheService.isIpCached("999.999.999.99"));
 	}
 	
@@ -79,10 +79,10 @@ class IpApiServiceTests {
 		
 		CountryInfo countryInfo = ipApiService.getCountryInfoByIP("100.200.12.123");
 		
-		assertEquals("countryName doesnt match","Argentina", countryInfo.countryName);
-		assertEquals("countryIsoCode doesnt match","AR", countryInfo.countryIsoCode);
-		assertEquals("baseCurrency doesnt match", "USD", countryInfo.exchange.baseCurrency);
-		assertEquals("currency doesnt match", "ARS", countryInfo.exchange.currency);
-		assertEquals("rate doesnt match", 200, countryInfo.exchange.rate, 0);
+		assertEquals("countryName doesnt match","Argentina", countryInfo.getCountryName());
+		assertEquals("countryIsoCode doesnt match","AR", countryInfo.getCountryIsoCode());
+		assertEquals("baseCurrency doesnt match", "USD", countryInfo.getExchange().getBaseCurrency());
+		assertEquals("currency doesnt match", "ARS", countryInfo.getExchange().getCurrency());
+		assertEquals("rate doesnt match", 200, countryInfo.getExchange().getRate(), 0);
 	}
 }

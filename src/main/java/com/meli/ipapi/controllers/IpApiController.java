@@ -19,7 +19,6 @@ import com.meli.ipapi.models.CountryInfo;
 import com.meli.ipapi.services.CacheService;
 import com.meli.ipapi.services.IpApiService;
 
-
 @RestController
 @RequestMapping("/")
 public class IpApiController {

@@ -12,6 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class IpInfo {
-    public String country_code;
-    public String country_name;
+    private String country_code;
+    private String country_name;
 }

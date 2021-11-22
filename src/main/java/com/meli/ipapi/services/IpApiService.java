@@ -51,22 +51,22 @@ public class IpApiService {
 		}
 		
 		// Get Country Info //////////////////////////////////////////////////////////////////
-		CountryInfo countryInfo = cacheService.isCountryCached(ipInfo.country_code);
+		CountryInfo countryInfo = cacheService.isCountryCached(ipInfo.getCountry_code());
 		if (countryInfo==null) {
 			// Get Country Currency //
 			Country[] country = restTemplate
-					.getForObject("https://restcountries.com/v3.1/alpha/" + ipInfo.country_code, Country[].class);		
-			String countryCurr = parseCurrency(country[0].currencies);
+					.getForObject("https://restcountries.com/v3.1/alpha/" + ipInfo.getCountry_code(), Country[].class);		
+			String countryCurr = parseCurrency(country[0].getCurrencies());
 			
 			// Get Exchange Rate //
 			ExchangeRate forex = restTemplate
 					.getForObject("http://data.fixer.io/api/latest?access_key=" + forexAccessKey + "&symbols=" + countryCurr, ExchangeRate.class);	
-			double rate = parseRate(forex.rates);
+			double rate = parseRate(forex.getRates());
 			
 			// Build Country Info for response //
-			countryInfo = CountryInfo.builder().countryName(ipInfo.country_name)
-					                    .countryIsoCode(ipInfo.country_code)
-					                    .exchange(Exchange.builder().currency(countryCurr).baseCurrency(forex.base).rate(rate).build())
+			countryInfo = CountryInfo.builder().countryName(ipInfo.getCountry_name())
+					                    .countryIsoCode(ipInfo.getCountry_code())
+					                    .exchange(Exchange.builder().currency(countryCurr).baseCurrency(forex.getBase()).rate(rate).build())
 					                    .build();
 			cacheService.addCountryCache(countryInfo);
 		}

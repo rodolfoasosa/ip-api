@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CountryInfo {
-	public String countryName;
-    public String countryIsoCode;
-    public Exchange exchange;
+	private String countryName;
+	private String countryIsoCode;
+	private Exchange exchange;
 }

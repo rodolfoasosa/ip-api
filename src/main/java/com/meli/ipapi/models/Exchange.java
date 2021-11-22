@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Exchange {
-	public String currency;
-    public double rate;
-	public String baseCurrency;
+	private String currency;
+	private double rate;
+	private String baseCurrency;
 }
