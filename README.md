@@ -1,10 +1,10 @@
 # IP-API
 
-IP-API es una API Rest que brinda información acerca del país de una dirección IP
+IP-API es una API Rest que brinda información acerca del país al cual pertenece una dirección IP
 
 ## Endpoints
 
-### Endpoint para obtener información acerca del país de una dirección IP.
+### Endpoint para obtener información acerca del país al cual pertenece una dirección IP.
 
 ```bash
 GET /ip/{ip}
@@ -51,11 +51,11 @@ Response ejemplo:
 ### Pasos
 
 - Clonar/descargar este repositorio.
-- Actualizar archivo de propiedades del proyecto Java application.properties con URL de base de datos MySql, credenciales de MySql y credenciales APIs
+- Actualizar archivo de propiedades del proyecto Java src/main/resources/application.properties con URL de base de datos MySql, credenciales de MySql y credenciales de APIs
 - Crear una imagen Docker utilizando el Dockerfile provisto.
 
 ```bash
-docker run --name ip-api -d -p 8080:8080 ip-api:1.0.0
+docker build -t ip-api:1.0.0 .
 ```
 
 - Correr la API ip-api desde la imagen Docker.
